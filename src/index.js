@@ -4,9 +4,9 @@ import React from "react";
 //2. Estar la variable ReactDOM en scope (es cargar libreria o importar)
 import  ReactDOM  from "react-dom";
 //3. Tener un elemento
-const Elemento = () => <p>Hola Mundo</p>
+import App from "./App.js";
 //4. Renderizar el elemento
-ReactDOM.render(<Elemento/>, document.getElementById("root"));
+ReactDOM.render(<App/>, document.getElementById("root"));
 //fsadfd
 
 
