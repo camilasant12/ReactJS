@@ -1,24 +1,28 @@
+
+import CartWidget from "./CartWidget.js";
 const NavBar = () => {
   return(
     <>
       <header>
         Tienda de Postres
+        <CartWidget> </CartWidget>
+         
       <nav>
-					<ul> 
-						<li>
-							<a href="..">Inicio</a>
+					<ul className="navbar navbar-expand-lg nav justify-content-end"> 
+						<li className="nav-item navMin">
+							<a class="nav-link active" href="..">Inicio</a>
 						</li>
-						<li>
-							<a href="..">Nosotros</a>
+						<li className="nav-item navMin">
+							<a class="nav-link active"  href="..">Nosotros</a>
 						</li>
-						<li>
-							<a href="..">Servicios</a>
+						<li className="nav-item navMin">
+							<a class="nav-link active"  href="..">Servicios</a>
 						</li>
-						<li>
-							<a href="..">Productos</a>
+						<li className="nav-item navMin">
+							<a class="nav-link active"  href="..">Productos</a>
 						</li>
-						<li>
-							<a href="..">Contacto</a>
+						<li className="nav-item navMin">
+							<a class="nav-link active"  href="..">Contacto</a>
 						</li>
 					</ul>
 				</nav>

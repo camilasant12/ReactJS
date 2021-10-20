@@ -5,7 +5,7 @@ import React from "react";
 import  ReactDOM  from "react-dom";
 //3. Tener un elemento
 import App from "./App.js";
-//4. Renderizar el elemento
+//4. Renderizar el elemento 
 ReactDOM.render(<App/>, document.getElementById("root"));
 //fsadfd
 
