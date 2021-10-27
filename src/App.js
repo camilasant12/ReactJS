@@ -1,7 +1,13 @@
 
 import ItemListContainer from "./components/ItemListContainer.js";
 import  NavBar from "./components/NavBar.js";
+import ItemCounter from "./components/ItemCounter.js";
+
+
+
 const App = () => {
+  
+  
   return(
     <>
       <header>
@@ -15,6 +21,11 @@ const App = () => {
         <ItemListContainer lista="aquí va una lista">
 
         </ItemListContainer>
+
+        <ItemCounter>
+          
+        </ItemCounter>
+        
       </section>
       
       <footer>

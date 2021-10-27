@@ -2,8 +2,8 @@ const ItemListContainer = ({lista}) => {
   return(
     <>
       <p>
-		  {lista}
-	  </p>
+		    {lista}
+	    </p>
     </>
   )
 }
