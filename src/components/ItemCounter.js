@@ -3,13 +3,13 @@ const ItemCounter = () => {
   let [contador, nuevoContador] = useState(0);
   
   const contadorAument = () =>{
-    contador ++
+    contador ++;
     console.log(contador);
     nuevoContador(contador)
   }
 
   const contadorRest = () =>{
-    contador --
+    contador --;
     console.log(contador);
     nuevoContador(contador)
   }
