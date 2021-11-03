@@ -1,12 +1,14 @@
 import ItemList from "./ItemList";
 import {useEffect} from "react";
+import zanahoria from './img/zanahoria.png';
+import chocolate from './img/chocolate.jpg';
 
 
 const ItemListContainer = () => {
 
 const productos = [
-  { nombre: "Torta Zanahoria", precio: "$10.000", descripcion: "Torta con harina de avena y zanahoria" },
-  { nombre: "Torta Chocolate", precio: "$20.000", descripcion: "Torta con chocolate sin azucares añadidos" }
+  { nombre: "Torta Zanahoria", precio: "$10.000", descripcion: "Torta con harina de avena y zanahoria", imagen: {zanahoria} },
+  { nombre: "Torta Chocolate", precio: "$20.000", descripcion: "Torta con chocolate sin azucares añadidos", imagen: {chocolate} }
 ]
 
   useEffect(()=>{

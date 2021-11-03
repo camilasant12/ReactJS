@@ -1,5 +1,6 @@
 import ItemCounter from './ItemCounter';
 import zanahoria from './img/zanahoria.png';
+import chocolate from './img/chocolate.jpg';
 
 
 const divStyle = {
@@ -18,8 +19,9 @@ const ItemList = ({productos}) => {
     </div>
     
       <div className="card" style={divStyle}>
-        {productos.map((productos) => (
+        {productos.map((productos) => ( 
         <>
+        
         <img src={zanahoria} className="card-img-top"></img>
           <div className="card-body">
             <h2 className="card-title">{productos.nombre}</h2>

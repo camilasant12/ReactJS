@@ -1,7 +1,7 @@
 
 import ItemListContainer from "./components/ItemListContainer.js";
 import  NavBar from "./components/NavBar.js";
-
+import ItemDetailContainer from "./components/ItemDetailContainer";
 
 
 
@@ -10,17 +10,27 @@ const App = () => {
   
   return(
     <>
-      <header>
-      <div className="col-md-8 col-sm-12" >
-        <NavBar> </NavBar>
+    <div class="container-fluid sticky-top ">
+		  <div class="row">
+        <div class="col-md-12 col-sm-12" >
+          <header>
+              <NavBar> </NavBar>
+          </header>
+        </div>
       </div>
-      </header>
-      <section> 
-        <ItemListContainer>
-          
-        </ItemListContainer>
-        
-      </section>
+    </div>
+    <div class="container-fluid">
+		  <div class="row">
+		  	<div class=" container-fluid">	
+          <section> 
+            <ItemDetailContainer>
+              
+            </ItemDetailContainer>
+            
+          </section>
+        </div>
+      </div>  
+    </div>
       
       <footer>
         Footer
