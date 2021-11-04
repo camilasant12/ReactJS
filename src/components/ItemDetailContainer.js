@@ -1,41 +1,45 @@
 import ItemDetail from "./ItemDetail";
 import {useEffect} from "react";
+import { useState } from "react";
+import { useParams } from 'react-router'
+import productosListado2 from "./productos.json";
 
 
 
 const ItemDetailContainer = () => {
+const {id} = useParams()
+console.log("soy " +[id])
 
-const productos = [
-  { nombre: "Torta de Zanahoria", precio: "$10.000", descripcion: "Torta con harina de avena y zanahoria", imagen: "./img/zanahoria.png" },
-  { nombre: "Torta de Chocolate", precio: "$20.000", descripcion: "Torta con chocolate sin azucares añadidos", imagen: "./img/chocolate.jpg" },
-  { nombre: "Torta Red Velvet", precio: "$20.000", descripcion: "Torta red velvet sin azucares añadidos", imagen: "./img/chocolate.jpg" }
-]
-
+const [productos, setProductos] = useState([]);
+const productosFiltrados = productosListado2.filter(productosListado2 => productosListado2.id == [id]);
+console.log(productosFiltrados)
   useEffect(()=>{
-    const getItem = new Promise((res,rej)=>{
-  
+    const promesaProductos = new Promise((res,rej)=>{
+    
       setTimeout(()=>{
-          res([productos])
-      },2000)
+        res([productosFiltrados])
+        
+        const jsonProductos = JSON.stringify(productosFiltrados);
+        setProductos(jsonProductos)
+        console.log("soy itemlist container" + productos)
+    },2000)
+
   
     })
   
-    getItem.then((producto)=>{  console.log(producto)  
-    const listaProductos = JSON.stringify(producto);
-    console.log(listaProductos)
-    })
+    promesaProductos.catch(()=>{  console.log("Termino la promesa mal")  })
+  },[id])
   
-    getItem.catch(()=>{  console.log("Termino la promesa mal")  })
-  })
+ 
   
   
   return(
     <>
-      <ItemDetail productos={productos}>
+      <ItemDetail productos={productosFiltrados} >
       
       </ItemDetail>
       
-    </>
+    </> 
   )
 }
 

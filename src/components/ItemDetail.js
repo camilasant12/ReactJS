@@ -1,6 +1,6 @@
 import ItemCounter from './ItemCounter';
-import zanahoria from './img/zanahoria.png';
-import chocolate from './img/chocolate.jpg';
+import { useParams } from 'react-router'
+import { Link } from 'react-router-dom';
 
 
 const divStyle = {
@@ -9,8 +9,8 @@ const divStyle = {
 
 
 const ItemDetail = ({productos}) => {
-  const imagen =productos.imagen;
-  console.log({imagen});
+  
+  //console.log("soy item detail" + productos.id);
   return(
     <>      
       {productos.map((productos) => ( 
@@ -18,11 +18,11 @@ const ItemDetail = ({productos}) => {
       <>
       <div class="col-lg-12 text-center">		
         <div className="card" style={divStyle}> 
-          <img src={zanahoria} className="card-img-top"></img>
+          <img src={productos.imagen} className="card-img-top" width="200"></img>
             <div className="card-body">
               <h2 className="card-title">{productos.nombre}</h2>
               <p className="card-text">{productos.descripcion} Valor:{productos.precio} </p>
-              <a href="#" className="btn btn-primary">Ver Más</a>
+              <Link to="">Ver Más</Link>
               <ItemCounter>
               </ItemCounter>
             </div>

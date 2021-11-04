@@ -5,8 +5,8 @@ const divStyle = {
 };
 
 
-const ItemList = ({categorias}) => {
-  console.log("soy itemlist" + {categorias})
+const CategoriaList = ({props}) => {
+  console.log("soy CategoriaList" + {categorias})
   
   return(
     <>
@@ -20,7 +20,7 @@ const ItemList = ({categorias}) => {
                  <h2 className="card-title">{categorias.categoria}</h2>
                  <p className="card-text">{categorias.descripcion}</p>
                  
-                 <Link to={`/categoria/${categorias.categoria}`} >Ver los productos</Link>
+                 <Link to="/categoria/id:" >Ver los productos</Link>
               
                 
                  
@@ -35,4 +35,4 @@ const ItemList = ({categorias}) => {
 }
 
 
-export default ItemList;
+export default CategoriaList;
