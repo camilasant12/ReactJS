@@ -1,5 +1,5 @@
 import {useState} from "react";
-const ItemCounter = () => {
+const ItemCounter = ({onAdd}) => {
   let [contador, nuevoContador] = useState(0);
   
   const contadorAument = () =>{
@@ -13,27 +13,19 @@ const ItemCounter = () => {
     console.log(contador);
     nuevoContador(contador)
   }
+
+  const confirmar = () => {
+    onAdd(contador)
+  }
+
   return(
     <>
-        <div className="container mt-5">
-          <div className="row">
-                <div className="col-sm-4 col-sm-offset-4">
-                  <div className="input-group mb-3">
-                    <div className="input-group-prepend">
-                      <button className="btn btn-dark btn-sm" id="minus-btn" onClick={contadorRest}>
-                        <i className="fa fa-minus"></i>
-                      </button>
-                    </div>
-                    <input type="number" id="qty_input" className="form-control form-control-sm" value={contador} min="1"></input>
-                    <div className="input-group-prepend">
-                      <button className="btn btn-dark btn-sm" id="plus-btn" onClick={contadorAument}>
-                        <i className="fa fa-plus"></i>
-                      </button>
-                    </div>
-                  </div>
-                </div>
-          </div>
-        </div>
+        
+    <button id="minus-btn" onClick={contadorRest}> - </button>
+    <input type="number"  value={contador} min="1"></input>
+    <button id="plus-btn" onClick={contadorAument}> + </button>
+    <button onClick={ confirmar }>confirmar compra</button>
+                   
         
     </>
   )

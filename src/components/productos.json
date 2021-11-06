@@ -15,7 +15,7 @@
    "nombre": "Torta Red Velvet", 
    "precio": "$20.000", 
    "descripcion": "Torta red velvet sin azucares añadidos", 
-   "imagen": "/img/chocolate.jpg" },
+   "imagen": "/img/redvelvet.jpg" },
 
   {"id":"especiales", 
    "nombre": "Torta de Boda", 

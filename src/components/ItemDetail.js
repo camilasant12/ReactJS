@@ -10,24 +10,24 @@ const divStyle = {
 
 const ItemDetail = ({productos}) => {
   
-  //console.log("soy item detail" + productos.id);
+  const onAdd = (cantidad) => {
+    console.log("Seleccionaron la cantidad: " +cantidad)
+  
+  }
+
   return(
     <>      
       {productos.map((productos) => ( 
          
       <>
-      <div class="col-lg-12 text-center">		
-        <div className="card" style={divStyle}> 
-          <img src={productos.imagen} className="card-img-top" width="200"></img>
-            <div className="card-body">
-              <h2 className="card-title">{productos.nombre}</h2>
-              <p className="card-text">{productos.descripcion} Valor:{productos.precio} </p>
-              <Link to="">Ver Más</Link>
-              <ItemCounter>
-              </ItemCounter>
-            </div>
-        </div>
-      </div>
+        <div>
+          <img src={productos.imagen} width="200"></img>
+          <h2 className="card-title">{productos.nombre}</h2>
+          <p className="card-text">{productos.descripcion} Valor:{productos.precio} </p>
+          <Link to="">Ver Más</Link>
+          <ItemCounter onAdd={onAdd}></ItemCounter>
+        </div>  
+           
       </>
       ))}
       
