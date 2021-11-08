@@ -1,18 +1,17 @@
 import ItemCounter from './ItemCounter';
-import { useParams } from 'react-router'
 import { Link } from 'react-router-dom';
+import { contexto } from './CartContext';
+import { useContext } from 'react';
 
-
-const divStyle = {
-  width: '18rem'
-};
 
 
 const ItemDetail = ({productos}) => {
   
+  const {addToCart} = useContext(contexto)
+  
   const onAdd = (cantidad) => {
     console.log("Seleccionaron la cantidad: " +cantidad)
-  
+    addToCart(productos, cantidad)
   }
 
   return(
@@ -24,7 +23,7 @@ const ItemDetail = ({productos}) => {
           <img src={productos.imagen} width="200"></img>
           <h2 className="card-title">{productos.nombre}</h2>
           <p className="card-text">{productos.descripcion} Valor:{productos.precio} </p>
-          <Link to="">Ver Más</Link>
+          <Link to={`/categoria/${productos.seccion}/${productos.id}`} >Ver Más</Link>
           <ItemCounter onAdd={onAdd}></ItemCounter>
         </div>  
            

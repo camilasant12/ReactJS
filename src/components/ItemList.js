@@ -8,7 +8,7 @@ const divStyle = {
 const ItemList = ({categorias}) => {
   console.log("soy itemlist" + {categorias})
   
-  return(
+  return( 
     <>
     {categorias.map((categorias) => ( 
          

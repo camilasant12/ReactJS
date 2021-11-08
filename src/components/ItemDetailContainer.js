@@ -11,7 +11,7 @@ const {id} = useParams()
 console.log("soy " +[id])
 
 const [productos, setProductos] = useState([]);
-const productosFiltrados = productosListado2.filter(productosListado2 => productosListado2.id == [id]);
+const productosFiltrados = productosListado2.filter(productosListado2 => productosListado2.seccion == [id]);
 console.log(productosFiltrados)
   useEffect(()=>{
     const promesaProductos = new Promise((res,rej)=>{

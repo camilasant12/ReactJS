@@ -24,7 +24,7 @@ const ItemCounter = ({onAdd}) => {
     <button id="minus-btn" onClick={contadorRest}> - </button>
     <input type="number"  value={contador} min="1"></input>
     <button id="plus-btn" onClick={contadorAument}> + </button>
-    <button onClick={ confirmar }>confirmar compra</button>
+    <button onClick={ confirmar }>Añadir al Carrito</button>
                    
         
     </>
