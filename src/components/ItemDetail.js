@@ -6,13 +6,7 @@ import { useContext } from 'react';
 
 
 const ItemDetail = ({productos}) => {
-  
-  const {addToCart} = useContext(contexto)
-  
-  const onAdd = (cantidad) => {
-    console.log("Seleccionaron la cantidad: " +cantidad)
-    addToCart(productos, cantidad)
-  }
+
 
   return(
     <>      
@@ -24,7 +18,7 @@ const ItemDetail = ({productos}) => {
           <h2 className="card-title">{productos.nombre}</h2>
           <p className="card-text">{productos.descripcion} Valor:{productos.precio} </p>
           <Link to={`/categoria/${productos.seccion}/${productos.id}`} >Ver Más</Link>
-          <ItemCounter onAdd={onAdd}></ItemCounter>
+          
         </div>  
            
       </>

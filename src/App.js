@@ -4,6 +4,7 @@ import  NavBar from "./components/NavBar.js";
 import {BrowserRouter, Switch, Route } from "react-router-dom";
 import ItemDetailContainer from "./components/ItemDetailContainer.js";
 import CartContext from "./components/CartContext.js";
+import Cart from "./components/Cart.js";
 import Item from "./components/Item.js";
 
 
@@ -20,6 +21,7 @@ const App = () => {
           <Route exact path="/productos/"> <ItemListContainer></ItemListContainer> </Route>
           <Route exact path="/categoria/:id/"> <ItemDetailContainer></ItemDetailContainer> </Route>
           <Route exact path="/categoria/:id/:id2/"> <Item></Item> </Route>
+          <Route exact path="/cart"> <Cart></Cart> </Route>
         </Switch>
       </CartContext>
     </BrowserRouter>

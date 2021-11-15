@@ -2,28 +2,28 @@
   {"id":"1", 
    "seccion":"SugarFree", 
    "nombre": "Torta de Zanahoria", 
-   "precio": "$10.000", 
+   "precio": 10000, 
    "descripcion": "Torta con harina de avena y zanahoria", 
    "imagen": "/img/zanahoria.png" },
   
   {"id":"2",
   "seccion":"Tortas", 
    "nombre": "Torta de Chocolate", 
-   "precio": "$20.000", 
+   "precio": 20000, 
    "descripcion": "Torta con chocolate sin azucares añadidos", 
    "imagen": "/img/chocolate.jpg"},
 
   {"id":"3", 
    "seccion":"Tortas",
    "nombre": "Torta Red Velvet", 
-   "precio": "$20.000", 
+   "precio": 20000, 
    "descripcion": "Torta red velvet sin azucares añadidos", 
    "imagen": "/img/redvelvet.jpg" },
 
   {"id":"4", 
   "seccion":"Especiales",
    "nombre": "Torta de Boda", 
-   "precio": "$20.000", 
+   "precio": 20000, 
    "descripcion": "Torta red velvet sin azucares añadidos", 
    "imagen": "/img/chocolate.jpg" }
 ]

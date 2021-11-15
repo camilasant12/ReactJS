@@ -7,10 +7,9 @@ import ItemCounter from './ItemCounter';
 
 
 
-
 const Item = () => {
   const {id2} = useParams()
-  console.log("soy " +[id2])
+
 
   const [producto, setProducto] = useState([]);
   const productoFiltrado = productosListado2.filter(productosListado2 => productosListado2.id == [id2]);
@@ -18,7 +17,7 @@ const Item = () => {
   const {addToCart} = useContext(contexto)
   
   const onAdd = (cantidad) => {
-    console.log("Seleccionaron la cantidad: " +cantidad)
+   
     addToCart(producto, cantidad)
   }
 
@@ -44,13 +43,28 @@ const Item = () => {
       {productoFiltrado.map((productoFiltrado) => ( 
          
          <>
-           <div>
-             <img src={productoFiltrado.imagen} width="200"></img>
-             <h2 className="card-title">{productoFiltrado.nombre}</h2>
-             <p className="card-text">{productoFiltrado.descripcion} Valor:{productoFiltrado.precio} </p>
-             
-             <ItemCounter onAdd={onAdd}></ItemCounter>
-           </div>  
+        <div className="card">
+          <div className="header">
+              <div className="icon">
+              <img   src={productoFiltrado.imagen}  />
+              <a href="#"><i className="fa fa-heart-o"></i></a>
+              </div>
+          </div>
+          <div className="text">
+              <h1 className="food">
+              {productoFiltrado.nombre}
+              </h1>
+              <i className="fa fa-clock-o"> Precio</i>
+              <i className="fa fa-users"> {productoFiltrado.precio}</i>
+              
+              
+              <p className="info">{productoFiltrado.descripcion}</p>
+          </div>
+          <ItemCounter onAdd={onAdd}></ItemCounter>
+          
+          
+        </div>
+         
               
          </>
          ))}
