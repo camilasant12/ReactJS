@@ -2,6 +2,7 @@ import ItemList from "./ItemList";
 import {useEffect} from "react";
 import { useState } from "react";
 import { useParams } from 'react-router'
+import "./estilos.css"
 
 
 
@@ -9,9 +10,10 @@ const ItemListContainer = () => {
 
 let {id} = useParams()
 const categoriasListado = [
-  { categoria: "Tortas",  descripcion: "Las Mejores Tortas Para Tu Paladar", imagen: "/img/chocolate.jpg" },
-  { categoria: "SugarFree",  descripcion: "Sección Sugar Free, para todos que quieren disfrutar del dulce y seguirse cuidando", imagen: "/img/zanahoria.png" },
-  { categoria: "Especiales",  descripcion: "Nuestras Mejores Creaciones", imagen: "/img/boda.jpg" },
+  { categoria: "Tortas",  descripcion: "Las Mejores Tortas Para Tu Paladar", imagen: "/img/tortas.png" },
+  { categoria: "Cumpleaños",  descripcion: "Lo Mejor, Para Las Mejores Fechas", imagen: "/img/cumpleaños.png" },
+  { categoria: "Especiales",  descripcion: "Nuestras Mejores Creaciones", imagen: "/img/especiales.png" },
+  { categoria: "Cupakes",  descripcion: "Nuestras Mejores Creaciones", imagen: "/img/cupcakes.png" },
 ]
   const [categorias, setCategorias] = useState([]);
  

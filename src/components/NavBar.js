@@ -1,25 +1,41 @@
 import { Link } from "react-router-dom";
-import CartWidget from "./CartWidget.js";
+import "./estilos.css";
+
 const NavBar = () => {
   return(
     <>
-      <header>
-        Tienda de Postres
-        <CartWidget> </CartWidget>
-         
+    <div className="nav">
       <nav>
-					<ul className="navbar navbar-expand-lg nav justify-content-end"> 
-						<li className="nav-item navMin">
+					<ul> 
+						<li>
 							<a class="nav-link active" href="..">Inicio</a>
+              <span></span><span></span><span></span><span></span>
+						</li>
+
+            <li>
+							<Link to="/productos">Nosotros</Link>
+              <span></span><span></span><span></span><span></span>
 						</li>
 					
-						<li className="nav-item navMin">
-							<Link to="/productos">Productos</Link>
+						<li>
+							<Link to="/productos">Menu</Link>
+              <span></span><span></span><span></span><span></span>
 						</li>
+
+            <li>
+							<Link to="/productos">Hacer Pedido</Link>
+              <span></span><span></span><span></span><span></span>
+						</li>
+
+            <li>
+							<Link to="/productos">Contactenos</Link>
+              <span></span><span></span><span></span><span></span>
+						</li>
+
 						
 					</ul>
 				</nav>
-        </header>
+        </div>
     </>
   )
 }

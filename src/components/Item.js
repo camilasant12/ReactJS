@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from 'react-router'
 import productosListado2 from "./productos.json";
 import ItemCounter from './ItemCounter';
+import './estilos.css'
 
 
 
@@ -21,22 +22,17 @@ const Item = () => {
     addToCart(producto, cantidad)
   }
 
-  useEffect(()=>{
-    const promesaProducto = new Promise((res,rej)=>{
-    
-      setTimeout(()=>{
-        res([productoFiltrado])
-        
-        const jsonProducto = JSON.stringify(productoFiltrado);
-        setProducto(jsonProducto)
-        
-    },2000)
-
-    
-    })
-  
-    promesaProducto.catch(()=>{  console.log("Termino la promesa mal")  })
-  },[id2])
+  useEffect(() => {
+    const promesaProducto = new Promise((res, rej) => {
+      setTimeout(() => {
+        res([productoFiltrado]);
+        setProducto(productoFiltrado);
+      }, 2000);
+    });
+    promesaProducto.catch(() => {
+      console.log("Termino la promesa mal");
+    });
+  }, [id2]);
  
   return(
     <>

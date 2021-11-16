@@ -10,10 +10,8 @@ const CartContext = ({children}) => {
   const [cart, setCart] = useState([]);
 
   const addToCart = (productos, cantidad) =>{
-    
     const nuevoProducto = {cantidad,productos}
-    const arrProd = [nuevoProducto]
-   
+    const arrProd = [... cart, nuevoProducto]
     setCart(arrProd)
   }
 
