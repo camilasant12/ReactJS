@@ -36,34 +36,34 @@ const Item = () => {
  
   return(
     <>
+    
+
       {productoFiltrado.map((productoFiltrado) => ( 
          
-         <>
-        <div className="card">
-          <div className="header">
-              <div className="icon">
-              <img   src={productoFiltrado.imagen}  />
-              <a href="#"><i className="fa fa-heart-o"></i></a>
-              </div>
-          </div>
-          <div className="text">
-              <h1 className="food">
-              {productoFiltrado.nombre}
-              </h1>
-              <i className="fa fa-clock-o"> Precio</i>
-              <i className="fa fa-users"> {productoFiltrado.precio}</i>
-              
-              
-              <p className="info">{productoFiltrado.descripcion}</p>
-          </div>
-          <ItemCounter onAdd={onAdd}></ItemCounter>
-          
-          
+      <>
+      <div className="wrapper">
+        <div className="product-img">
+          <img src={productoFiltrado.imagen} height="420" width="327"/>
         </div>
-         
-              
-         </>
-         ))}
+        <div className="product-info">
+          <div className="product-text">
+            <h1>{productoFiltrado.nombre}</h1>
+            <h2>By  {productoFiltrado.seccion}</h2>
+            <p>{productoFiltrado.descripcion}</p>
+          </div>
+          <div className="product-price-btn">
+            <p><span>$</span>{productoFiltrado.precio}</p>
+            
+            <ItemCounter onAdd={onAdd}></ItemCounter>
+          </div>
+        </div>
+      </div>
+
+      
+     
+      </>
+      ))}
+   
     </>
   )
 }
