@@ -331,7 +331,7 @@ nav ul li span:nth-child(4) {
 	display: inline-block;
 	height: 50px;
 	width: 176px;
-	margin-top: 10%;
+	margin-top: 6%;
 	margin-left: 40px;
 	box-sizing: border-box;
 	border: transparent;
@@ -342,7 +342,7 @@ nav ul li span:nth-child(4) {
 	text-transform: uppercase;
 	letter-spacing: 0.2em;
 	color: #ffffff;
-	background-color: #9cebd5;
+	background-color: #62bdc0;
 	cursor: pointer;
 	outline: none;
   }
@@ -363,8 +363,8 @@ nav ul li span:nth-child(4) {
   .product-price-btn .icon-btn {
 	width: 50px;
 	height: 50px;
-	border: 1px solid #9cebd5;
-	background: #9cebd5;
+	border: 1px solid #62bdc0;
+	background: #62bdc0;
 	border-radius: 25px;
 	overflow: hidden;
 	position: relative;
@@ -445,7 +445,7 @@ nav ul li span:nth-child(4) {
 /*COUNTER*/
 .product-price-btn .counter{
 	text-align: center; 
-	margin-top:30px;
+	margin-right: 50px;
 }
 .product-price-btn .main-hr {
 	width: 30%;
@@ -454,12 +454,14 @@ nav ul li span:nth-child(4) {
 .product-price-btn .icon-btn {
 	width: 50px;
 	height: 50px;
-	border: 1px solid #9cebd5;
-	background: #9cebd5;
+	border: 1px solid #62bdc0;
+	background: #62bdc0;
 	border-radius: 25px;
 	overflow: hidden;
 	position: relative;
 	transition: width 0.2s ease-in-out;
+	margin-top: 50px;
+	
 }
 .product-price-btn .add-btn:hover {
 	width: 120px;
@@ -532,4 +534,18 @@ nav ul li span:nth-child(4) {
 	top: calc(50% - 2px);
 }
 	  
+.valorCounter{
+	display: inline-block;
+	position: absolute;	
+	margin-left: 50%;
+	font-family: 'Trocchi', serif;
+	font-size: 28px;
+	color: #e25ca5;
+	width: 40px;
+	border-style: none;
+	top: -18px;
+	height: 50px;
 	
+	
+
+}

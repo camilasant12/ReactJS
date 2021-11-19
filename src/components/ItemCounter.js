@@ -22,25 +22,19 @@ const ItemCounter = ({onAdd}) => {
 
   return(
     <>
-    
-
+  
+    <input type="number" value={contador} min="1" className="valorCounter" readOnly></input>
     <div className="counter">
       <hr className="main-hr" />
-      
-      <input type="number" value={contador} min="1" className="valorCounter"></input>
-      
       <button onClick={contadorAument} className="icon-btn add-btn">
         <div className="add-icon"></div>
-        <div className="btn-txt">Add</div>
+        <div className="btn-txt">Agregar</div>
       </button>
       <button onClick={contadorRest} className="icon-btn add-btn">  
-        <div className="btn-txt">Remove</div>
+        <div className="btn-txt">Remover</div>
       </button>
       
-      <button type="button" onClick={ confirmar }>buy now</button>
-      
-     
-      
+      <button type="button" onClick={ confirmar }>añadir al carrito</button>
       
     </div>
     

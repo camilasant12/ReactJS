@@ -2,40 +2,43 @@ import ItemDetail from "./ItemDetail";
 import {useEffect} from "react";
 import { useState } from "react";
 import { useParams } from 'react-router'
-import productosListado2 from "./productos.json";
+import { firestore } from "./firebase";
+import { doc, getDoc } from "firebase/firestore";
+import "./estilos.css";
+//import productosListado2 from "./productos.json";
 
 
 
 const ItemDetailContainer = () => {
 const {id} = useParams()
-console.log("soy " +[id])
 
 const [productos, setProductos] = useState([]);
-const productosFiltrados = productosListado2.filter(productosListado2 => productosListado2.seccion == [id]);
-console.log(productosFiltrados)
-  useEffect(()=>{
-    const promesaProductos = new Promise((res,rej)=>{
-    
-      setTimeout(()=>{
-        res([productosFiltrados])
-        
-        const jsonProductos = JSON.stringify(productosFiltrados);
-        setProductos(jsonProductos)
-        console.log("soy itemlist container" + productos)
-    },2000)
+//const productosFiltrados = productosListado2.filter(productosListado2 => productosListado2.seccion == [id]);
+//console.log(productosFiltrados)
+useEffect(()=>{
+  const db = firestore
+  const query =  doc(db, "Producto", id);
+  
+  
+  const promesa =  getDoc(query)
 
-  
+  promesa
+    .then((documento)=>{
+       
+      const data =  documento.doc.map(doc => doc.data());
+      console.log("exitoso")
+      console.log (data)
+      setProductos(data)
     })
-  
-    promesaProductos.catch(()=>{  console.log("Termino la promesa mal")  })
+    .catch(()=>{
+    })
   },[id])
-  
  
   
   
   return(
     <>
-      <ItemDetail productos={productosFiltrados} >
+      <ItemDetail productos={productos} >
       
       </ItemDetail>
       

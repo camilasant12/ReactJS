@@ -1,47 +1,43 @@
 import ItemList from "./ItemList";
 import {useEffect} from "react";
 import { useState } from "react";
-import { useParams } from 'react-router'
-import "./estilos.css"
-
-
+import { firestore } from "./firebase";
+import { useParams } from "react-router";
+import { collection, getDocs } from 'firebase/firestore/lite';
+import "./estilos.css";
 
 const ItemListContainer = () => {
-
-let {id} = useParams()
-const categoriasListado = [
-  { categoria: "Tortas",  descripcion: "Las Mejores Tortas Para Tu Paladar", imagen: "/img/tortas.png" },
-  { categoria: "Cumpleaños",  descripcion: "Lo Mejor, Para Las Mejores Fechas", imagen: "/img/cumpleaños.png" },
-  { categoria: "Especiales",  descripcion: "Nuestras Mejores Creaciones", imagen: "/img/especiales.png" },
-  { categoria: "Cupakes",  descripcion: "Nuestras Mejores Creaciones", imagen: "/img/cupcakes.png" },
-]
+  const {id} = useParams()
   const [categorias, setCategorias] = useState([]);
  
-
   useEffect(()=>{
-    const promesaCategorias = new Promise((res,rej)=>{
+    const db = firestore
+    const tabla = collection(db, 'Categoria');
   
-      setTimeout(()=>{
-          res([categoriasListado])
-          const jsonCategorias = JSON.stringify(categoriasListado);
-          setCategorias(jsonCategorias)
-          console.log("soy itemlist container" +categorias)
-      },2000)
-  
-    });
+    //const query = collection.doc("Atz47DwYopEgfGV95f5g")
+    //const promesa = tabla.get()
+    const promesa =  getDocs(tabla);
 
-    promesaCategorias.catch(()=>{  console.log("Termino la promesa mal")  })
-  },{id})
+    promesa
+      .then((documento)=>{
+       
+         const data =  documento.docs.map(doc => doc.data());
+         
+        setCategorias(data)
+        
+      })
+      .catch(()=>{
+
+      })
+    },[id])
  
   return(
     <>
-      <ItemList categorias={categoriasListado}>
+      <ItemList categorias={categorias}>
       
       </ItemList>
       
     </>
   )
 }
-
-
 export default ItemListContainer;
