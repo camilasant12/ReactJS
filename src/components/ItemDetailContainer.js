@@ -3,29 +3,26 @@ import {useEffect} from "react";
 import { useState } from "react";
 import { useParams } from 'react-router'
 import { firestore } from "./firebase";
-import { doc, getDoc } from "firebase/firestore";
+import { collection, query, where, getDocs } from "firebase/firestore";
 import "./estilos.css";
-//import productosListado2 from "./productos.json";
-
 
 
 const ItemDetailContainer = () => {
-const {id} = useParams()
-
+const {id} = useParams()  
+console.log("soy id detail" + id)
 const [productos, setProductos] = useState([]);
-//const productosFiltrados = productosListado2.filter(productosListado2 => productosListado2.seccion == [id]);
-//console.log(productosFiltrados)
+
 useEffect(()=>{
   const db = firestore
-  const query =  doc(db, "Producto", id);
-  
-  
-  const promesa =  getDoc(query)
 
+  const q = query(collection(db, "Producto"), where("seccion", "==", id));
+  const promesa =   getDocs(q);
+
+  
   promesa
     .then((documento)=>{
        
-      const data =  documento.doc.map(doc => doc.data());
+      const data =  documento.docs.map(doc => ({...doc.data(), id:doc.id}));
       console.log("exitoso")
       console.log (data)
       setProductos(data)

@@ -20,7 +20,7 @@ const ItemList = ({categorias}) => {
               <img className="card__thumb" src="https://i.imgur.com/7D7I6dI.png" alt="" />
               <div className="card__header-text">
                 <h3 className="card__title">{categorias.categoria}</h3>            
-                <Link to={`/categoria/${categorias.categoria}`}  className="card__status" >Ver los productos</Link>
+                <Link to={`/categoria/${categorias.id}`}  className="card__status" >Ver los productos</Link>
                
               </div>
             </div>

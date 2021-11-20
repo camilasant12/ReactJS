@@ -36,7 +36,7 @@ const Item = () => {
  
   return(
     <>
-    
+      
 
       {productoFiltrado.map((productoFiltrado) => ( 
          
