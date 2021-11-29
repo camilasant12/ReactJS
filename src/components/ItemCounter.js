@@ -1,9 +1,8 @@
 import {useState} from "react";
 import "./estilos.css";
 
-const ItemCounter = ({onAdd}) => {
+const ItemCounter = ({onAdd, precio}) => {
   let [contador, nuevoContador] = useState(0);
-  
   const contadorAument = () =>{
     contador ++;
     console.log(contador);
@@ -17,12 +16,13 @@ const ItemCounter = ({onAdd}) => {
   }
 
   const confirmar = () => {
-    onAdd(contador)
+    
+    onAdd(contador, precio)
   }
 
   return(
     <>
-  
+   
     <input type="number" value={contador} min="1" className="valorCounter" readOnly></input>
     <div className="counter">
       <hr className="main-hr" />

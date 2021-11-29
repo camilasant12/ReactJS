@@ -1,11 +1,12 @@
 import { useContext } from "react"
-import Cart from "./Cart"
 import { contexto } from "./CartContext"
+import { Link } from 'react-router-dom';
+
 
 
 
 const CartWidget = () => {
-  const {cart} = useContext(contexto)
+  const {cart} = useContext(contexto) 
 
   
   return(
@@ -13,8 +14,10 @@ const CartWidget = () => {
       <span className="material-icons">
 		    shopping_cart  
 	    </span>
-     <p>{cart.length}</p>
-     <Cart></Cart>
+      <Link to={`/cart/`} className="card__status" ><p>{cart.length}</p>
+      
+      </Link>
+     
   
     </>
   )

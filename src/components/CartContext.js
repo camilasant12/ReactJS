@@ -8,11 +8,23 @@ export const {Provider, Consumer} = contexto
 
 const CartContext = ({children}) => {
   const [cart, setCart] = useState([]);
-
-  const addToCart = (productos, cantidad) =>{
-    const nuevoProducto = {cantidad,productos}
-    const arrProd = [... cart, nuevoProducto]
+  const [totalPedido, setTotalPedido] = useState([]);
+  console.log(totalPedido)
+  const addToCart = (productos, cantidad, precio) =>{
+    
+    const totalProduc = precio *cantidad
+    
+    let total = (parseInt(totalPedido,10) + parseInt(totalProduc,10))
+    console.log(parseInt(total)+ "soy total pedixdo")
+    
+    const nuevoProducto = {cantidad,productos, totalProduc, totalPedido}
+    console.log(totalPedido + "valor total pedido despues")
+  
+    console.log(totalProduc +"cart context precio")
+     const arrProd = [... cart, nuevoProducto]
     setCart(arrProd)
+    setTotalPedido(total)
+
   }
 
   const valorCarrito ={

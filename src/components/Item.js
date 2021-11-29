@@ -12,10 +12,10 @@ const Item = () => {
   const {id2} = useParams()
   const [producto, setProducto] = useState([]);
   const {addToCart} = useContext(contexto)
-  console.log("soy id2"+id2);
 
-  const onAdd = (cantidad) => {
-    addToCart(producto, cantidad)
+  const onAdd = (cantidad, precio) => {
+    
+    addToCart(producto, cantidad, precio)
   }
 
   useEffect(() => {
@@ -44,18 +44,18 @@ const Item = () => {
          <>
          <div className="wrapper">
            <div className="product-img">
-             <img src={producto.imagen} height="420" width="327"/>
+             <img src={producto.imagen} />
            </div>
            <div className="product-info">
              <div className="product-text">
                <h1>{producto.nombre}</h1>
-               <h2>By  {producto.seccion}</h2>
+               <h2>By  {producto.seccion2}</h2>
                <p>{producto.descripcion}</p>
              </div>
              <div className="product-price-btn">
                <p><span>$</span>{producto.precio}</p>
                
-               <ItemCounter onAdd={onAdd}></ItemCounter>
+               <ItemCounter  onAdd={onAdd} precio={producto.precio}></ItemCounter>
              </div>
            </div>
          </div>
