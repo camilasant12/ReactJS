@@ -92,17 +92,7 @@ const Cart = () => {
         
           <div class='credit-info'>
           <div class='credit-info-content'>
-            <table class='half-input-table'>
-              <tr><td>Please select your card: </td><td><div class='dropdown' id='card-dropdown'><div class='dropdown-btn' id='current-card'>Visa</div>
-                <div class='dropdown-select'>
-                <ul>
-                  <li>Master Card</li>
-                  <li>American Express</li>
-                  </ul></div>
-                </div>
-               </td></tr>
-            </table>
-            <img src='https://dl.dropboxusercontent.com/s/ubamyu6mzov5c80/visa_logo%20%281%29.png' height='80' class='credit-card-image' id='credit-card-image'></img>
+            
             Card Number
             <input class='input-field'></input>
             Card Holder
@@ -117,7 +107,8 @@ const Cart = () => {
                 </td>
               </tr>
             </table>
-            <button class='pay-btn'>Checkout</button>
+            
+            <button class='pay-btn' onClick={finalizarCompra}>Finalizar Compra</button>
 
           </div>
         </div>

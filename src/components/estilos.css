@@ -638,7 +638,7 @@ nav ul li span:nth-child(4) {
   width:50%;
 }
 .window {
-  height: 100%;
+  height: auto;
   width:800px;
   background:#fff;
   display:-webkit-box;
@@ -650,7 +650,7 @@ nav ul li span:nth-child(4) {
   z-index:10;
 }
 .order-info {
-  height: 100%;
+  height: auto;
   width:50%;
   padding-left:25px;
   padding-right:25px;
