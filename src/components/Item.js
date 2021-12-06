@@ -12,7 +12,7 @@ const Item = () => {
   const {id2} = useParams()
   const [producto, setProducto] = useState([]);
   const {addToCart} = useContext(contexto)
-
+ 
   const onAdd = (cantidad, precio) => {
     
     addToCart(producto, cantidad, precio)

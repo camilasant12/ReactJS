@@ -8,9 +8,7 @@ const Header = () => {
     <>
       <header>
         <img   src={logo}  />
-        <CartWidget> </CartWidget>
-        
-         
+        <CartWidget> </CartWidget>       
       </header>
     </>
   )

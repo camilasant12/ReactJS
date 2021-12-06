@@ -7,6 +7,8 @@ import CartContext from "./components/CartContext.js";
 import Cart from "./components/Cart.js";
 import Item from "./components/Item.js";
 import Header from "./components/Header.js";
+import Index from "./components/index.js";
+import Footer from "./components/Footer.js";
 import "./components/estilos.css"
 
 
@@ -22,7 +24,7 @@ const App = () => {
           <Header> </Header>
           <NavBar> </NavBar>
           <Switch>
-            <Route exact path="/"></Route>
+            <Route exact path="/"><Index></Index></Route>
             <Route exact path="/productos/"> <ItemListContainer></ItemListContainer> </Route>
             <Route exact path="/categoria/:id/"> <ItemDetailContainer></ItemDetailContainer> </Route>
             <Route exact path="/categoria/:id/:id2/"> <Item></Item> </Route>
@@ -31,9 +33,7 @@ const App = () => {
         </CartContext>
       </BrowserRouter>
 
-      <footer>
-         Footer
-      </footer>
+      <Footer></Footer>
     </body>
     </>
   )

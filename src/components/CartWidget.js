@@ -14,10 +14,8 @@ const CartWidget = () => {
       <span className="material-icons">
 		    shopping_cart  
 	    </span>
-      <Link to={`/cart/`} className="card__status" ><p>{cart.length}</p>
-      
+      <Link to={`/cart/`} className="card__status" ><p className="lengthCart">{cart.length}</p>
       </Link>
-     
   
     </>
   )

@@ -13,7 +13,7 @@ const NavBar = () => {
 						</li>
 
             <li>
-							<Link to="/productos">Nosotros</Link>
+							<Link to="..">Nosotros</Link>
               <span></span><span></span><span></span><span></span>
 						</li>
 					
@@ -28,7 +28,7 @@ const NavBar = () => {
 						</li>
 
             <li>
-							<Link to="/productos">Contactenos</Link>
+							<Link to="..">Contactenos</Link>
               <span></span><span></span><span></span><span></span>
 						</li>
 

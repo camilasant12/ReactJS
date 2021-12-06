@@ -2,34 +2,42 @@ import { useContext, useState } from "react"
 import { contexto } from "./CartContext"
 import { firestore } from "./firebase";
 import { collection, doc, addDoc } from 'firebase/firestore';
-import Total from "./Total";
+import { Link } from "react-router-dom";
+
+
 const Cart = () => {
-  const {cart} = useContext(contexto)
-
+  const {cart, removeItem, elimCart} = useContext(contexto)
   const [id, setId] = useState('')
+ 
+  //Calculo Total
+  const totalArr = []
+  let total = 0;
+  cart.forEach(item => {
+    totalArr.push(item.totalProduc)
+    total = total + item.totalProduc;
+  })
 
-  const finalizarCompra = () => {
+  
+  let today = new Date(),
+  date =  today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear();
 
+  const finalizarCompra = () => {    
     const usuario = {
       nombre: "Juan",
       email: "email@test.com",
       telefono: "123456789",
     }
-    
 
     
     const db = firestore
-    //const tabla = collection(db, 'Pedido');
     const promesa =  addDoc(collection(db, "Pedido"), {
       comprador: usuario,
       productos: cart,
-      total: 1000,
+      total: total,
+      fecha : date
     });
 
-
-    //const query = doc(db, "Pedido", order)
-
-    //const promesa = setDoc(query);
+    
     promesa
       .then((resultado) => {
         setId(resultado.id)
@@ -38,6 +46,7 @@ const Cart = () => {
         console.log(error)
       })
   }
+
 
   console.log("soy el Cart"+ JSON.stringify({cart}))
 
@@ -50,73 +59,77 @@ const Cart = () => {
     )
   } else 
   {
-    return(
-      
-      <>
-      <div className="container">
-        <div className="window">
-          <div className='order-info'>
-            <div className='order-info-content'>
-              <h2>Order Summary</h2>
-              
-              {cart.map((item) => ( 
+    if (cart.length > 0){
+      return(
+        <>
+        <div className="container">
+          <div className="window">
+            <div className='order-info'>
+              <div className='order-info-content'>
+                <h2>Resumen de Compra</h2>
                 
-                <>
-                
-                <div class='line'></div>
-                <table class='order-table'>
-                  <tbody>
-                    <tr>
-                      <td><img src={item.productos[0].imagen} class='full-width'></img>
-                      </td>
-                      <td>
-                        <br/> <span class='thin'><h1>{item.productos[0].nombre}</h1></span><br/>
-                        <span class='thin small'>Cantidad {item.cantidad}<br/><br/></span>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td>
-                        <div class='price'>Precio Unitario ${item.productos[0].precio}<br></br>
-                        Total $ {item.total} </div>
-                      </td>
-                    </tr>
+                {cart.map((item) => ( 
+                  
+                  <>
+                  <div class='line'></div>
+                  <table class='order-table'>
+                    <tbody>
+                      <tr>
+                        <td><img src={item.productos[0].imagen} class='full-width'></img>
+                        </td>
+                        <td>
+                          <br/> <span class='thin'><h1>{item.productos[0].nombre}</h1></span><br/>
+                          <span class='thin small'>Cantidad {item.cantidad}<br/><br/></span>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <div class='price'>Precio Unitario ${item.productos[0].precio}<br></br>
+                            Total $ {item.totalProduc} 
+                            <br></br>
+                            <button class='pay-btn-elimProd' onClick={()=>removeItem(item.productos[0].id)}>Eliminar Producto</button>
+                          </div>
+                        </td>
+                      </tr>
 
-                  </tbody>
-                </table>    
-                </>
-                ))}
-                <Total></Total>
+                    </tbody>
+                  </table>    
+                  </>
+                  ))}
+                <div class='line'></div>
+                  <div class='total'>
+                      <span id="totalSpan">
+                          <div class='thin dense'><h1>Total: ${total}</h1>
+                          </div>
+                      </span>
+                  </div><br></br><br></br>  <br></br>
+                  <button class='pay-btn' onClick={finalizarCompra}>Finalizar Compra</button>
+                  <button class='pay-btn' >Seguir Comprando</button>
+                  <button class='pay-btn' onClick={()=>elimCart()} >Eliminar Compra</button>
+              </div>
             </div>
           </div>
-          
-        
-          <div class='credit-info'>
-          <div class='credit-info-content'>
-            
-            Card Number
-            <input class='input-field'></input>
-            Card Holder
-            <input class='input-field'></input>
-            <table class='half-input-table'>
-              <tr>
-                <td> Expires
-                  <input class='input-field'></input>
-                </td>
-                <td>CVC
-                  <input class='input-field'></input>
-                </td>
-              </tr>
-            </table>
-            
-            <button class='pay-btn' onClick={finalizarCompra}>Finalizar Compra</button>
+          </div>
+        </>
+      )
 
+    }else{
+      return(
+        <>
+        <div className="container">
+          <div className="window">
+            <div className='order-info'>
+              <div className='order-info-content'>
+                <h2>No hay productos en el carrito</h2>
+                <Link to={`/productos`}  className="card__status" >Ver los productos</Link>
+              </div>
+            </div>
           </div>
         </div>
-        </div>
-      </div>
-      </>
-    )
-          
+        
+        </> 
+        )
+    }    
   }
 }
 

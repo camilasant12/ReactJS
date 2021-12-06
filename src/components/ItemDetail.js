@@ -7,7 +7,7 @@ const ItemDetail = ({productos}) => {
 
   return( 
     <>
-    <ul class="cards">      
+    <ul class="cards">       
       {productos.map((productos) => ( 
          
       <>
