@@ -1,7 +1,8 @@
 # Información del proyecto
 Este es mi proyecto final para el curso de ReactJS en CoderHouse, parte de la carrera de desarrollador web full-stack.
 Este proyecto consiste en un ecommerce implementado con React junto con Typescript, React Router, React Hooks y Firebase como base de datos. 
- 
+ ![image](https://user-images.githubusercontent.com/55412469/145291436-e18bc057-1ebd-49a1-bcd8-798235206d2f.png)
+
  
  
 # Flujo de Compra
